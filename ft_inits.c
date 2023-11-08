@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_main.c                                          :+:      :+:    :+:   */
+/*   ft_inits.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atudor <atudor@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,47 +12,30 @@
 
 #include "ft_push_swap.h"
 
-int	main(int argc, char **argv)
+int add_piece_to_stack(t_stack *stack, t_piece *new_piece)
 {
 
-	t_stack stack_a;
-	t_stack stack_b;
+}
 
-	if (argc < 2) 
+// for every argv (starting by 1), we will create a new piece (whit malloc)
+// then we will place this peace to the stack
+int initial_fill_stack_a(t_stack *stack_a, int argc, char **argv)
+{	
+	t_piece *new_piece;
+
+	while()
 	{
-        write (2, "Error! No input provided.\n", 27);
-        return 1;
-    }
-	if (argc >= 2 && !ft_check_input(argc, argv))
-	{
-		return (0);
+		new_piece = malloc(sizeof(t_piece * 1));
+		//give the value to the piexe
+		//add_the_piece_to_stack
 	}
 
-	//initialice out stack values
-	initialice_stack(stack_a);
-	initialice_stack(stack_b);
+}
 
-	//Create the pieces while fill the stack a
-	initial_fill_stack_a(tack_a, argc, argv);
-
-	//print stack a , pieces iterating from first , piece by biece
-
-
-
-
-
-
-	//calcualte the indexes of the pieces
-
-	//Program the movements
-
-	//Check if all the peices started orderds
-
-	//Reolve
-		//REsolve case 2 pieces
-		//REsolve case 3 pieces
-		//REsolve case 4 pieces
-		//REsolve case 5 pieces
-		//REsolve other pieces
-	return (0);
-}			
+//Will place the initial values of a stack
+void initialice_stack(t_stack *stack)
+{
+	stack->len = 0;
+	stack->first = NULL;
+	stack->last = NULL;
+}

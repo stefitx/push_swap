@@ -12,90 +12,122 @@
 
 #include "ft_push_swap.h"
 
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
-}
 
-int	ft_atoi(const char *str)
+int	ft_check_string(char *str)
 {
-	int	i;
-	int	sign;
-	int	nb;
+	int i;
+	int error;
 
-	sign = 1;
-	nb = 0;
+	error = 0;
 	i = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+	if(str[0] == '\0')
+		error = 1;
+	else if (str[0] == '-')
 	{
 		i++;
+		if(str[1] == '0')
+			error = 1;
 	}
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
+	if (!error){
+		while (str[i])
+		{
+			if (!ft_isdigit(str[i++]))
+			{
+				error = 1;
+				break ;
+			}
+		}
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		nb = (nb * 10) + (str[i] - '0');
-		i++;
-	}
-	nb *= sign;
-	return (nb);
+	if (!error)
+		return(1);
+	write (2, "Error! Invalid input!", 21);
+	return (0);
 }
 
-void	ft_check_input(int argc, char **argv)
+int str_num_is_out_of_range(char *str_num)
 {
-		int i;
-		int j;
+	if (str_num[0] == '-')
+	{
+		//case is negative number
+		if (ft_strlen(str_num) > 11)
+			return(1);
+		if (ft_strlen(str_num) < 11)
+			return(0);
+		if (ft_strncmp(str_num, "-2147483648", 11) > 0)
+			return (1);
+	}
+	else
+	{
+		//case is positive number
+		if (ft_strlen(str_num) > 10)
+			return(1);
+		if (ft_strlen(str_num) < 10)
+			return(0);
+		if (ft_strncmp(str_num, "2147483647", 10) > 0)
+			return (1);
+	}
+	return(0);
+}
+
+int check_invalid_character_and_zeros(int argc, char **argv)
+{
+	int i;
 
 	i = 1;
-	j = 0;
 	while (i < argc)
 	{
-		if (argv[i][j] == '-' && ft_isdigit(argv[i][j + 1]))
-			j++;
-		else if (argv[i][j] == '-' && !ft_isdigit(argv[i][j + 1]))
+		if (ft_check_string(argv[i]) == 0)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int check_not_dups(int argc, char **argv)
+{
+	int i;
+	int j;
+	int num1;
+	int num2;
+
+	i = 1;
+	while(i < argc)
+	{
+		num1 = ft_atoi(argv[i]);
+		j = i + 1;
+		while(j < argc)
 		{
-			write (2, "Error! Invalid input!", 21);
-			return ;
-		}
-		while (argv[i][j])
-		{
-			if (!ft_isdigit(argv[i][j]))
+			num2 = ft_atoi(argv[j]);
+			if(num1 == num2)
 			{
-				write (2, "Error! Only numbers, please!", 28);
-				return ;
+				write (2, "Error! duplicated num input!", 21);
+				return (0);
 			}
 			j++;
 		}
 		i++;
 	}
-	i = 1;
-	while (i >= 1 && argv[i + 1])
-	{
-		if (*argv[i] != *argv[i + 1] )
-				i++;
-		else if (*argv[i] == *argv[i + 1])
-		{
-			write (2, "Error! Numbers must be different!", 34);
-			return ;
-		}
-		else if (ft_atoi(argv[i]) > INT_MAX)
-		{
-			write (2, "Error! Number bigger than upper limit!", 34);
-			return ;
-		}
-		else if (ft_atoi(argv[i]) < INT_MIN)
-		{
-			write (2, "Error! Number smaller than lower limit!", 34);
-			return ;
-		}
-	}
+	return (1);
 }
 
-//check for 00 case
+//check for empty string param ./push_swap 1 2 "" 3
+int	ft_check_input(int argc, char **argv)
+{
+	int i;
+
+	i = 1;
+	if (check_invalid_character_and_zeros(argc, argv) == 0)
+		return (0);
+	if (check_not_dups(argc, argv) == 0)
+		return (0);
+	while (i  < argc)
+	{
+		if (str_num_is_out_of_range(argv[i]))
+		{
+			write (2, "Error! Numbers is out of range!", 34);
+			return (0);
+		}
+		i++;
+	}
+	return 1;
+}
