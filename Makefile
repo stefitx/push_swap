@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = ft_main.c ft_check_args.c ft_utils.c ft_inits.c
+SRCS = ft_main.c ft_check_args.c ft_utils.c #ft_inits.c
 SRCSBONUS = #
  			
 OBJS = ${SRCS:.c=.o}

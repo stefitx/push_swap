@@ -15,25 +15,17 @@
 int	main(int argc, char **argv)
 {
 
-	t_stack stack_a;
-	t_stack stack_b;
-
-	if (argc < 2) 
-	{
-        write (2, "Error! No input provided.\n", 27);
-        return 1;
-    }
-	if (argc >= 2 && !ft_check_input(argc, argv))
-	{
+	//t_stack stack_a;
+	//t_stack stack_b;
+	if (ft_check_input(argc, argv) == 1)
 		return (0);
-	}
 
-	//initialice out stack values
-	initialice_stack(stack_a);
-	initialice_stack(stack_b);
+	/*//initialice out stack values
+	initialize_stack(&stack_a);
+	initialize_stack(&stack_b);
 
 	//Create the pieces while fill the stack a
-	initial_fill_stack_a(tack_a, argc, argv);
+	initial_fill_stack_a(stack_a, argc, argv);
 
 	//print stack a , pieces iterating from first , piece by biece
 
@@ -53,6 +45,6 @@ int	main(int argc, char **argv)
 		//REsolve case 3 pieces
 		//REsolve case 4 pieces
 		//REsolve case 5 pieces
-		//REsolve other pieces
+		//REsolve other pieces*/
 	return (0);
 }			

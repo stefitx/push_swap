@@ -12,84 +12,76 @@
 
 #include "ft_push_swap.h"
 
-
-int	ft_check_string(char *str)
+int out_of_range(char *str_num)
 {
-	int i;
-	int error;
+	int	error;
 
 	error = 0;
-	i = 0;
-	if(str[0] == '\0')
-		error = 1;
-	else if (str[0] == '-')
-	{
-		i++;
-		if(str[1] == '0')
-			error = 1;
-	}
-	if (!error){
-		while (str[i])
-		{
-			if (!ft_isdigit(str[i++]))
-			{
-				error = 1;
-				break ;
-			}
-		}
-	}
-	if (!error)
-		return(1);
-	write (2, "Error! Invalid input!", 21);
-	return (0);
-}
-
-int str_num_is_out_of_range(char *str_num)
-{
 	if (str_num[0] == '-')
 	{
-		//case is negative number
 		if (ft_strlen(str_num) > 11)
-			return(1);
+			error = 1;
 		if (ft_strlen(str_num) < 11)
-			return(0);
+			return (0);
 		if (ft_strncmp(str_num, "-2147483648", 11) > 0)
-			return (1);
+			error = 1;
 	}
 	else
 	{
-		//case is positive number
 		if (ft_strlen(str_num) > 10)
-			return(1);
+			error = 1;
 		if (ft_strlen(str_num) < 10)
-			return(0);
+			return (0);
 		if (ft_strncmp(str_num, "2147483647", 10) > 0)
-			return (1);
+			error = 1;
 	}
-	return(0);
+	return (error);
 }
 
-int check_invalid_character_and_zeros(int argc, char **argv)
+int	check_character_mistakes(int argc, char **argv)
 {
 	int i;
+	int	j;
+	int	error;
 
+	error = 0;
 	i = 1;
 	while (i < argc)
 	{
-		if (ft_check_string(argv[i]) == 0)
-			return (0);
+		j = 0;
+		if(argv[i][0] == '\0')
+			error = 1;
+		else if (argv[i][0] == '-')
+		{
+			j++;
+			if(argv[i][1] == '0')
+				error = 1;
+		}
+		if (!error)
+		{
+			while (argv[i][j])
+			{
+				if (!ft_isdigit(argv[i][j++]))
+				{
+					error = 1;
+					break ;
+				}
+			}
+		}
 		i++;
 	}
-	return (1);
+	return (error);
 }
 
-int check_not_dups(int argc, char **argv)
+int check_dups(int argc, char **argv)
 {
 	int i;
 	int j;
 	int num1;
 	int num2;
+	int	error;
 
+	error = 0;
 	i = 1;
 	while(i < argc)
 	{
@@ -99,35 +91,37 @@ int check_not_dups(int argc, char **argv)
 		{
 			num2 = ft_atoi(argv[j]);
 			if(num1 == num2)
-			{
-				write (2, "Error! duplicated num input!", 21);
-				return (0);
-			}
+				error = 1;
 			j++;
 		}
 		i++;
 	}
-	return (1);
+	return (error);
 }
 
-//check for empty string param ./push_swap 1 2 "" 3
 int	ft_check_input(int argc, char **argv)
 {
 	int i;
+	int	error;
 
+	error = 0;
 	i = 1;
-	if (check_invalid_character_and_zeros(argc, argv) == 0)
-		return (0);
-	if (check_not_dups(argc, argv) == 0)
-		return (0);
+	if (argc < 2)
+		error = 1;
+	if (check_character_mistakes(argc, argv))
+		error = 1;
+	printf("after char mistakes %d\n", error);
+	if (check_dups(argc, argv))
+		error = 1;
+	printf("after dups %d\n", error);
 	while (i  < argc)
 	{
-		if (str_num_is_out_of_range(argv[i]))
-		{
-			write (2, "Error! Numbers is out of range!", 34);
-			return (0);
-		}
+		if (out_of_range(argv[i]))
+			error = 2;
 		i++;
 	}
-	return 1;
+	printf("after range %d\n", error);
+	if (error == 1)
+		printf("%s", "Error\n");
+	return (error);
 }

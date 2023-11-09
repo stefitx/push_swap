@@ -33,7 +33,7 @@ int initial_fill_stack_a(t_stack *stack_a, int argc, char **argv)
 }
 
 //Will place the initial values of a stack
-void initialice_stack(t_stack *stack)
+void initialize_stack(t_stack *stack)
 {
 	stack->len = 0;
 	stack->first = NULL;
