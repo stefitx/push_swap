@@ -14,25 +14,29 @@
 
 int add_piece_to_stack(t_stack *stack, t_piece *new_piece)
 {
-
+	if (stack->len == 0 && stack->first == NULL)
+	{
+		stack->first = new_piece;
+		stack->len += 1;
+		stack->last = new_piece;
+	}
 }
 
-// for every argv (starting by 1), we will create a new piece (whit malloc)
-// then we will place this peace to the stack
-int initial_fill_stack_a(t_stack *stack_a, int argc, char **argv)
+int fill_stack_a(t_stack *stack_a, int argc, char **argv)
 {	
 	t_piece *new_piece;
+	int	i;
 
-	while()
+	i = 1;
+	while(i <= argc)
 	{
 		new_piece = malloc(sizeof(t_piece * 1));
-		//give the value to the piexe
-		//add_the_piece_to_stack
+		new_piece->value = (ft_atoi(argv[i++]));
+		add_the_piece_to_stack(stack_a, new_piece);
 	}
 
 }
 
-//Will place the initial values of a stack
 void initialize_stack(t_stack *stack)
 {
 	stack->len = 0;

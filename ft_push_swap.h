@@ -37,7 +37,7 @@ int	ft_isdigit(int c);
 int ft_strlen(char *str);
 int	ft_strncmp(char *s1, const char *s2, int n);
 void initialize_stack(t_stack *stack);
-int initial_fill_stack_a(t_stack *stack_a, int argc, char **argv);
+int fill_stack_a(t_stack *stack_a, int argc, char **argv);
 
 #endif
 
