@@ -16,6 +16,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <limits.h>
+#include <stdlib.h>
 
 typedef	struct s_piece
 {
@@ -38,6 +39,7 @@ int ft_strlen(char *str);
 int	ft_strncmp(char *s1, const char *s2, int n);
 void initialize_stack(t_stack *stack);
 int fill_stack_a(t_stack *stack_a, int argc, char **argv);
+int	complete_index(t_stack *stack, int argc, char **argv);
 
 #endif
 

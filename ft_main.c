@@ -14,36 +14,48 @@
 
 int	main(int argc, char **argv)
 {
+	int	count;
 
+	count = 1;
 	t_stack stack_a;
 	t_stack stack_b;
-	t_stack *ptr = NULL;
-	t_piece *ptr_piece = NULL;
+	// t_stack *ptr = NULL;
+	t_piece *ptr_piece;
 
-	if (ft_check_input(argc, argv) == 1)
-		return (0);
+	/*if (ft_check_input(argc, argv) == 1)
+		return (0);*/
 
 	initialize_stack(&stack_a);
 	initialize_stack(&stack_b);
 
 	//Create the pieces while fill the stack a
 	fill_stack_a(&stack_a, argc, argv);
+	//index the pieces
+	complete_index(&stack_a, argc, argv);
 
-	//print stack a , pieces iterating from first , piece by biece
-	while (stack_a)
+
+
+	//	up next: program the movements!
+
+	
+
+	ptr_piece = stack_a.first;
+
+	if (ptr_piece == NULL)
+		printf("No next node(from stack)\n");
+
+	while (ptr_piece != NULL)
 	{
-		ptr = stack_a;
-		ptr_p = stack_a->first;
-		printf("%d", ptr_p->data);
+		printf("⚡️PIECE NR. %d:⚡️\n", count);
+		printf("VALUE is %d\n", ptr_piece->value);
+		printf("INDEX is %d\n", ptr_piece->index);
+		ptr_piece = ptr_piece->next;
+		count++;
+		printf("________________\n");
 	}
-	//printf("%d -> ", stack_a->data)
+        printf("No next piece(from ptr)\n");
 
 
-
-
-
-
-	//calcualte the indexes of the pieces
 
 	//Program the movements
 
