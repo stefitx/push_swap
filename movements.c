@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push_swap.h                                    :+:      :+:    :+:   */
+/*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atudor <atudor@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,36 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	FT_PUSH_SWAP_H
-# define FT_PUSH_SWAP_H
+#include "ft_push_swap.h"
 
-#include <unistd.h>
-#include <stdio.h>
-#include <limits.h>
-#include <stdlib.h>
-
-typedef	struct s_piece
+int	delete(t_piece *del)
 {
-	int	value;
-	int	index;
-	struct	s_piece *next;
-}	t_piece;
+	del->value = 0;
+	del->index = 0;
+	del->next = NULL;
+	return 0;
+}
 
-typedef	struct s_stack
+int	swap(t_stack *stack)
 {
-	int	len;
 	t_piece	*first;
-	t_piece	*last;
-}	t_stack;
+	t_piece	*second;
 
-int	ft_check_input(int argc, char **argv);
-int	ft_atoi(const char *str);
-int	ft_isdigit(int c);
-int ft_strlen(char *str);
-int	ft_strncmp(char *s1, const char *s2, int n);
-void initialize_stack(t_stack *stack);
-int fill_stack_a(t_stack *stack_a, int argc, char **argv);
-int	fill_index(t_stack *stack, int argc, char **argv);
-int	swap(t_stack *stack);
 
-#endif
+	if (stack->len < 2)
+        return 0;
+	first = stack->first; // == (*stack).first
+	second = stack->first->next; // *((*stack).first).next
+	first->next = second->next;
+	stack->first = second;
+	second->next = first;
+
+	if (stack->len == 2)
+		stack->last = first;
+return 0;
+}
+
+// ss (do swap for both stacks)
+// pa & pb (push from top of one stack to top of other stack, do nothing if the pusher is empty)
+// ra & rb (rotate first and last pieces in stack)
+// rr (rotate both stacks at the same time (1st becomes last))
+// rra & rrb & rrr (last becomes first)

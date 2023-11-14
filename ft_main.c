@@ -21,6 +21,8 @@ int	main(int argc, char **argv)
 	t_stack stack_b;
 	// t_stack *ptr = NULL;
 	t_piece *ptr_piece;
+	t_piece *freeptr;
+	t_piece *temp;
 
 	/*if (ft_check_input(argc, argv) == 1)
 		return (0);*/
@@ -31,9 +33,9 @@ int	main(int argc, char **argv)
 	//Create the pieces while fill the stack a
 	fill_stack_a(&stack_a, argc, argv);
 	//index the pieces
-	complete_index(&stack_a, argc, argv);
+	fill_index(&stack_a, argc, argv);
 
-
+	swap(&stack_a);
 
 	//	up next: program the movements!
 
@@ -67,5 +69,14 @@ int	main(int argc, char **argv)
 		//REsolve case 4 pieces
 		//REsolve case 5 pieces
 		//REsolve other pieces*/
+		freeptr = stack_a.first;
+		while(freeptr)
+		{
+			temp = freeptr->next;
+			free(freeptr);
+			freeptr = temp;
+		}
+
+
 	return (0);
 }			

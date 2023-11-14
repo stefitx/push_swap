@@ -12,7 +12,7 @@
 
 #include "ft_push_swap.h"
 
-int	complete_index(t_stack *stack, int argc, char **argv)
+int	fill_index(t_stack *stack, int argc, char **argv)
 {
 	int	i;
 	int	j;
@@ -50,6 +50,7 @@ int add_piece_to_stack(t_stack *stack, t_piece *new_piece)
 	{
 		stack->last->next = new_piece;
 		stack->last = new_piece;
+		new_piece->next = NULL;
 
 	}
 	stack->len += 1;
