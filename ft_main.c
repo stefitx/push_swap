@@ -21,11 +21,12 @@ int	main(int argc, char **argv)
 	t_stack stack_b;
 	// t_stack *ptr = NULL;
 	t_piece *ptr_piece;
+	t_piece *ptr_b;
 	t_piece *freeptr;
 	t_piece *temp;
 
-	/*if (ft_check_input(argc, argv) == 1)
-		return (0);*/
+	if (ft_check_input(argc, argv) == 1)
+		return (0);
 
 	initialize_stack(&stack_a);
 	initialize_stack(&stack_b);
@@ -35,12 +36,9 @@ int	main(int argc, char **argv)
 	//index the pieces
 	fill_index(&stack_a, argc, argv);
 
-	swap(&stack_a);
+	rotate("reverse", &stack_a);
 
-	//	up next: program the movements!
-
-	
-
+	ptr_b = stack_b.first;
 	ptr_piece = stack_a.first;
 
 	if (ptr_piece == NULL)
@@ -48,6 +46,7 @@ int	main(int argc, char **argv)
 
 	while (ptr_piece != NULL)
 	{
+		printf("STACK A");
 		printf("⚡️PIECE NR. %d:⚡️\n", count);
 		printf("VALUE is %d\n", ptr_piece->value);
 		printf("INDEX is %d\n", ptr_piece->index);
@@ -55,7 +54,20 @@ int	main(int argc, char **argv)
 		count++;
 		printf("________________\n");
 	}
-        printf("No next piece(from ptr)\n");
+        printf("No next piece in stack A\n\n\n\n");
+
+    count = 1;
+    while (ptr_b != NULL)
+	{
+		printf("STACK B");
+		printf("🌸PIECE NR. %d:🌸\n", count);
+		printf("VALUE is %d\n", ptr_b->value);
+		printf("INDEX is %d\n", ptr_b->index);
+		ptr_b = ptr_b->next;
+		count++;
+		printf("________________\n");
+	}
+        printf("No next piece in stack B\n");
 
 
 

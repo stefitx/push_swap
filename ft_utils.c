@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_push_swap.h"
+
 int ft_strlen(char *str)
 {
 	int count;
@@ -70,4 +72,12 @@ int	ft_strncmp(char *s1, const char *s2, int n)
 	if (i < n && s1[i] != s2[i])
 		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 	return (0);
+}
+
+int	delete(t_piece *del)
+{
+	del->value = 0;
+	del->index = 0;
+	del->next = NULL;
+	return 0;
 }
