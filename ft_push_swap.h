@@ -40,9 +40,12 @@ int	ft_strncmp(char *s1, const char *s2, int n);
 void initialize_stack(t_stack *stack);
 int fill_stack_a(t_stack *stack_a, int argc, char **argv);
 int	fill_index(t_stack *stack, int argc, char **argv);
-int	swap(t_stack *stack);
-int	push(t_stack *sender, t_stack *receiver);
+void	swap(t_stack *stack);
+void	push(t_stack *sender, t_stack *receiver);
 void	rotate(char *s, t_stack *stack);
-int	simultaneous(char *s, t_stack *stack_a, t_stack *stack_b);
+void	simultaneous(char *s, t_stack *stack_a, t_stack *stack_b);
+void	move(char *s, t_stack *stack_a, t_stack *stack_b);
+int	sorted(t_stack *stack);
+int	sort_three(t_stack *stack_a, t_stack *stack_b);
 
 #endif

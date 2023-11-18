@@ -35,8 +35,10 @@ int	main(int argc, char **argv)
 	fill_stack_a(&stack_a, argc, argv);
 	//index the pieces
 	fill_index(&stack_a, argc, argv);
-
-	rotate("reverse", &stack_a);
+	if (sorted(&stack_a))
+		return 0;
+	//sort_three(&stack_a, &stack_b);
+	move("rr", &stack_a, &stack_b);
 
 	ptr_b = stack_b.first;
 	ptr_piece = stack_a.first;
@@ -59,7 +61,7 @@ int	main(int argc, char **argv)
     count = 1;
     while (ptr_b != NULL)
 	{
-		printf("STACK B");
+		printf("STACK B\n");
 		printf("🌸PIECE NR. %d:🌸\n", count);
 		printf("VALUE is %d\n", ptr_b->value);
 		printf("INDEX is %d\n", ptr_b->index);

@@ -117,7 +117,7 @@ int	ft_check_input(int argc, char **argv)
 	while (i  < argc)
 	{
 		if (out_of_range(argv[i]))
-			error = 2;
+			error = 1;
 		i++;
 	}
 	printf("after range %d\n", error);
