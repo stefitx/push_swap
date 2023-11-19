@@ -46,6 +46,58 @@ void	rotate(char *s, t_stack *stack);
 void	simultaneous(char *s, t_stack *stack_a, t_stack *stack_b);
 void	move(char *s, t_stack *stack_a, t_stack *stack_b);
 int	sorted(t_stack *stack);
-int	sort_three(t_stack *stack_a, t_stack *stack_b);
+void	sort_three(t_stack *stack_a, t_stack *stack_b);
+
+void	small_sort(t_stack *stack_a, t_stack *stack_b);
+int	sort(int argc, t_stack *stack_a, t_stack *stack_b);
+int	smallest_index(t_stack *stack);
+int	biggest_index(t_stack *stack);
 
 #endif
+
+/*void	sort_four(t_stack *stack_a, t_stack *stack_b)
+{
+	while (stack_a->len == 4)
+	{
+		if (stack_a->first->next->index == smallest_index(stack_a) 
+			&& !sorted(stack_a))
+			move("ra", stack_a, stack_b);
+		if ((stack_a->first->next->next->index == 1
+			|| stack_a->last->index == smallest_index(stack_a)) && !sorted(stack_a))
+			move("rra", stack_a, stack_b);
+		if ((stack_a->first->index == 1) && !sorted(stack_a))
+			move("pb", stack_a, stack_b);
+		if (sorted(stack_a))
+			return ;
+	}
+	if (stack_a->len == 3)
+		sort_three(stack_a, stack_b);
+	if (!sorted(stack_a))
+			sort_four(stack_a, stack_b);*/
+
+/*2 0 1
+2 1 0
+
+0 2 1
+1 2 0
+
+1 0 2
+
+
+
+
+
+
+
+
+
+
+
+
+1 0 2
+2 0 1
+
+0 2 1
+
+2 1 0
+1 2 0*/

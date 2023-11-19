@@ -110,17 +110,17 @@ int	ft_check_input(int argc, char **argv)
 		error = 1;
 	if (check_character_mistakes(argc, argv))
 		error = 1;
-	printf("after char mistakes %d\n", error);
+//	printf("after char mistakes %d\n", error);
 	if (check_dups(argc, argv))
 		error = 1;
-	printf("after dups %d\n", error);
+//	printf("after dups %d\n", error);
 	while (i  < argc)
 	{
 		if (out_of_range(argv[i]))
 			error = 1;
 		i++;
 	}
-	printf("after range %d\n", error);
+//	printf("after range %d\n", error);
 	if (error == 1)
 		printf("%s", "Error\n");
 	return (error);

@@ -35,10 +35,13 @@ int	main(int argc, char **argv)
 	fill_stack_a(&stack_a, argc, argv);
 	//index the pieces
 	fill_index(&stack_a, argc, argv);
-	if (sorted(&stack_a))
-		return 0;
+	/*if (sorted(&stack_a))
+		return 0;*/
 	//sort_three(&stack_a, &stack_b);
-	move("rr", &stack_a, &stack_b);
+	//move("pb", &stack_a, &stack_b);
+	printf("smallest index is %d\n", (smallest_index(&stack_a)));
+	printf("biggest index is %d\n", (biggest_index(&stack_a)));
+	small_sort(&stack_a, &stack_b);
 
 	ptr_b = stack_b.first;
 	ptr_piece = stack_a.first;
@@ -49,6 +52,7 @@ int	main(int argc, char **argv)
 	while (ptr_piece != NULL)
 	{
 		printf("STACK A");
+		printf("STACK LEN IS is %d\n", stack_a.len);
 		printf("⚡️PIECE NR. %d:⚡️\n", count);
 		printf("VALUE is %d\n", ptr_piece->value);
 		printf("INDEX is %d\n", ptr_piece->index);
@@ -56,6 +60,8 @@ int	main(int argc, char **argv)
 		count++;
 		printf("________________\n");
 	}
+		ptr_piece = stack_a.last;
+		printf("last piece value: is %d\n", ptr_piece->value);
         printf("No next piece in stack A\n\n\n\n");
 
     count = 1;

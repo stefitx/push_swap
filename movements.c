@@ -109,9 +109,9 @@ void	move(char *s, t_stack *stack_a, t_stack *stack_b)
 	else if (ft_strncmp(s, "pb", 2) == 0)
 		push(stack_a, stack_b);
 	else if (ft_strncmp(s, "ra", 2) == 0)
-		rotate("ro", stack_a);
+		rotate("rotate", stack_a);
 	else if (ft_strncmp(s, "rb", 2) == 0)
-		rotate("ro", stack_b);
+		rotate("rotate", stack_b);
 	else if (ft_strncmp(s, "rra", 3) == 0)
 		rotate("reverse", stack_a);
 	else if (ft_strncmp(s, "rrb", 3) == 0)

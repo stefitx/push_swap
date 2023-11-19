@@ -43,7 +43,6 @@ int add_piece_to_stack(t_stack *stack, t_piece *new_piece)
 	if (stack->len == 0 && stack->first == NULL)
 	{
 		stack->first = new_piece;
-		stack->len += 1;
 		stack->last = new_piece;
 	}
 	else
