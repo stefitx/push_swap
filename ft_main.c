@@ -39,43 +39,43 @@ int	main(int argc, char **argv)
 		return 0;*/
 	//sort_three(&stack_a, &stack_b);
 	//move("pb", &stack_a, &stack_b);
-	printf("smallest index is %d\n", (smallest_index(&stack_a)));
-	printf("biggest index is %d\n", (biggest_index(&stack_a)));
-	small_sort(&stack_a, &stack_b);
+	// printf("smallest index is %d\n", (smallest_index(&stack_a)));
+	// printf("biggest index is %d\n", (biggest_index(&stack_a)));
+	sort(argc, &stack_a, &stack_b);
 
 	ptr_b = stack_b.first;
 	ptr_piece = stack_a.first;
 
-	if (ptr_piece == NULL)
-		printf("No next node(from stack)\n");
+	// if (ptr_piece == NULL)
+	// 	printf("No next node(from stack)\n");
 
-	while (ptr_piece != NULL)
-	{
-		printf("STACK A");
-		printf("STACK LEN IS is %d\n", stack_a.len);
-		printf("⚡️PIECE NR. %d:⚡️\n", count);
-		printf("VALUE is %d\n", ptr_piece->value);
-		printf("INDEX is %d\n", ptr_piece->index);
-		ptr_piece = ptr_piece->next;
-		count++;
-		printf("________________\n");
-	}
-		ptr_piece = stack_a.last;
-		printf("last piece value: is %d\n", ptr_piece->value);
-        printf("No next piece in stack A\n\n\n\n");
+	// while (ptr_piece != NULL)
+	// {
+	// 	printf("STACK A");
+	// 	printf("STACK LEN IS is %d\n", stack_a.len);
+	// 	printf("⚡️PIECE NR. %d:⚡️\n", count);
+	// 	printf("VALUE is %d\n", ptr_piece->value);
+	// 	printf("INDEX is %d\n", ptr_piece->index);
+	// 	ptr_piece = ptr_piece->next;
+	// 	count++;
+	// 	printf("________________\n");
+	// }
+	// 	ptr_piece = stack_a.last;
+	// 	printf("last piece value: is %d\n", ptr_piece->value);
+    //     printf("No next piece in stack A\n\n\n\n");
 
-    count = 1;
-    while (ptr_b != NULL)
-	{
-		printf("STACK B\n");
-		printf("🌸PIECE NR. %d:🌸\n", count);
-		printf("VALUE is %d\n", ptr_b->value);
-		printf("INDEX is %d\n", ptr_b->index);
-		ptr_b = ptr_b->next;
-		count++;
-		printf("________________\n");
-	}
-        printf("No next piece in stack B\n");
+    // count = 1;
+    // while (ptr_b != NULL)
+	// {
+	// 	printf("STACK B\n");
+	// 	printf("🌸PIECE NR. %d:🌸\n", count);
+	// 	printf("VALUE is %d\n", ptr_b->value);
+	// 	printf("INDEX is %d\n", ptr_b->index);
+	// 	ptr_b = ptr_b->next;
+	// 	count++;
+	// 	printf("________________\n");
+	// }
+    //     printf("No next piece in stack B\n");
 
 
 
