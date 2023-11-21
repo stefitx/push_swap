@@ -10,14 +10,15 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = ./srcs/*.c
+SRCS = srcs/main.c srcs/big_sort.c srcs/check_args.c srcs/inits.c \
+srcs/libft_utils.c srcs/movements.c srcs/small_sort.c srcs/sort_utils.c
 SRCSBONUS = #
  			
 OBJS = ${SRCS:.c=.o}
 OBJSBONUS = ${SRCSBONUS:.c=.o}
 
 NAME = push_swap
-INCLUDE = ./srcs/ft_push_swap.h
+INCLUDE = includes/ft_push_swap.h
 
 CC = gcc
 RM = rm -f

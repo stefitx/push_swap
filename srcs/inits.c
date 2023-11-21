@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "../includes/ft_push_swap.h"
 
 int	fill_index(t_stack *stack, int argc, char **argv)
 {

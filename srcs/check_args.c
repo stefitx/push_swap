@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "../includes/ft_push_swap.h"
 
 int out_of_range(char *str_num)
 {

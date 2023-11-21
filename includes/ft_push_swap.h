@@ -48,11 +48,13 @@ void	simultaneous(char *s, t_stack *stack_a, t_stack *stack_b);
 void	move(char *s, t_stack *stack_a, t_stack *stack_b);
 int	sorted(t_stack *stack);
 void	sort_three(t_stack *stack_a, t_stack *stack_b);
-
 void	small_sort(t_stack *stack_a, t_stack *stack_b);
 int	sort(int argc, t_stack *stack_a, t_stack *stack_b);
 int	smallest_index(t_stack *stack);
 int	biggest_index(t_stack *stack);
+int	big_sort(t_stack *stack_a, t_stack *stack_b);
+int	average_index(int index);
+int average(t_stack *stack);
 
 #endif
 
@@ -84,7 +86,9 @@ int	biggest_index(t_stack *stack);
 
 1 0 2
 
-
+		if (stack_a->first->index < stack_a->last->index
+			&& stack_b->first->index > stack_b->last->index)
+			move("rrr", stack_a, stack_b);
 
 
 

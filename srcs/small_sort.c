@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   small_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atudor <atudor@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "../includes/ft_push_swap.h"
 
 void	sort_three(t_stack *stack_a, t_stack *stack_b)
 {	
@@ -54,14 +54,7 @@ if (argc == 3)
 		move("sa", stack_a, stack_b);
 	else if (argc <= 6)
 		small_sort(stack_a, stack_b);
-/*	else if (argc >= 6 && argc <= 101)
-		sort_five(stack_a, stack_b);
-	else if (argc <= 101) // has to be less than 700
-	//	sort_hundred(stack_a, stack_b);
-	else if (argc > ) // has to be less than 5500
-		sort_fivehundred(stack_a, stack_b);
-	else if (argc > 501)
-		big_sort(stack_a, stack_b);*/
-
+	else if (argc > 6 )
+		big_sort(stack_a, stack_b);
 	return 0;
 }
