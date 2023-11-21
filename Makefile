@@ -10,14 +10,14 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = ft_main.c ft_check_args.c ft_utils.c ft_inits.c movements.c sort.c
+SRCS = ./srcs/*.c
 SRCSBONUS = #
  			
 OBJS = ${SRCS:.c=.o}
 OBJSBONUS = ${SRCSBONUS:.c=.o}
 
 NAME = push_swap
-HEADER = ft_push_swap.h
+INCLUDE = ./srcs/ft_push_swap.h
 
 CC = gcc
 RM = rm -f
@@ -25,14 +25,14 @@ CFLAGS = -Wall -Wextra -Werror -g
 
 
 # Implicit method
-%.o:%.c 	$(HEADER) Makefile
+%.o:%.c 	$(INCLUDE) Makefile
 			$(CC) $(CFLAGS) -c $< -o $@
 
 
 # My methods
 all: 		${NAME}
 
-${NAME}:	${OBJS}
+${NAME}:	${OBJS} ${INCLUDE}
 			gcc  $(CFLAGS) ${OBJS} -o ${NAME} 
 
 #bonus:		${OBJS} ${OBJSBONUS}

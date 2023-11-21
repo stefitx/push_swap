@@ -12,56 +12,6 @@
 
 #include "ft_push_swap.h"
 
-int	smallest_index(t_stack *stack)
-{
-	t_piece *ptr;
-	int	index;
-
-	if (stack->len == 0)
-		return (-1);
-	index = stack->first->index;
-	ptr = stack->first;
-	while (ptr != NULL)
-	{
-		if (ptr->index < index)
-			index = ptr->index;
-		ptr = ptr->next;
-	}
-	return (index);
-}
-
-int	biggest_index(t_stack *stack)
-{
-	t_piece *ptr;
-	int	index;
-
-if (stack->len == 0)
-	return -1;
-	index = stack->first->index;
-	ptr = stack->first;
-	while (ptr != NULL)
-	{
-		if (ptr->index > index)
-			index = ptr->index;
-		ptr = ptr->next;
-	}
-	return (index);
-}
-
-int	sorted(t_stack *stack)
-{
-	t_piece	*iterator;
-
-	iterator = stack->first;
-	while (iterator->next != NULL)
-	{
-		if (iterator->index > iterator->next->index)
-			return (0);
-		iterator = iterator->next;
-	}
-	return (1);
-}
-
 void	sort_three(t_stack *stack_a, t_stack *stack_b)
 {	
 	if (stack_a->first->index == biggest_index(stack_a))
@@ -80,7 +30,7 @@ void	small_sort(t_stack *stack_a, t_stack *stack_b)
 	while (stack_a->len <= 5 && stack_a->len >= 4)
 	{
 		if (stack_a->first->next->index == smallest_index(stack_a))
-			move("ra", stack_a, stack_b);
+			move("sa", stack_a, stack_b);
 		if (stack_a->first->next->next->index == smallest_index(stack_a))
 			move("ra", stack_a, stack_b);
 		if ((stack_a->first->next->next->next->index == smallest_index(stack_a)
@@ -90,7 +40,7 @@ void	small_sort(t_stack *stack_a, t_stack *stack_b)
 			&& !sorted(stack_a))
 			move("pb", stack_a, stack_b);
 		if (sorted(stack_a))
-			return ;
+			break ;
 	}
 	if (stack_a->len == 3)
 		sort_three(stack_a, stack_b);

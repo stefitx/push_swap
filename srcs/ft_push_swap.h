@@ -32,6 +32,7 @@ typedef	struct s_stack
 	t_piece	*last;
 }	t_stack;
 
+int	main(int argc, char **argv);
 int	ft_check_input(int argc, char **argv);
 int	ft_atoi(const char *str);
 int	ft_isdigit(int c);

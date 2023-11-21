@@ -43,13 +43,13 @@ int	main(int argc, char **argv)
 	// printf("biggest index is %d\n", (biggest_index(&stack_a)));
 	sort(argc, &stack_a, &stack_b);
 
-	ptr_b = stack_b.first;
-	ptr_piece = stack_a.first;
+	 ptr_b = stack_b.first;
+	 ptr_piece = stack_a.first;
 
 	// if (ptr_piece == NULL)
 	// 	printf("No next node(from stack)\n");
 
-	// while (ptr_piece != NULL)
+	//  while (ptr_piece != NULL)
 	// {
 	// 	printf("STACK A");
 	// 	printf("STACK LEN IS is %d\n", stack_a.len);
@@ -68,6 +68,7 @@ int	main(int argc, char **argv)
     // while (ptr_b != NULL)
 	// {
 	// 	printf("STACK B\n");
+	// 	printf("STACK LEN IS is %d\n", stack_b.len);
 	// 	printf("🌸PIECE NR. %d:🌸\n", count);
 	// 	printf("VALUE is %d\n", ptr_b->value);
 	// 	printf("INDEX is %d\n", ptr_b->index);
