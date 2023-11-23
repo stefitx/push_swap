@@ -55,6 +55,17 @@ int	biggest_index(t_stack *stack);
 int	big_sort(t_stack *stack_a, t_stack *stack_b);
 int	average_index(int index);
 int average(t_stack *stack);
+void	internal_divide(t_stack *stack_a, t_stack *stack_b);
+void	connect_puzzle(t_stack *stack_a, t_stack *stack_b);
+void	tandem(t_stack *stack_a, t_stack *stack_b);
+void	sort_b(t_stack *stack_a, t_stack *stack_b);
+void	second_divide(t_stack *stack_a, t_stack *stack_b);
+void	sort_three_mod(t_stack *stack_a, t_stack *stack_b);
+void	order_to_a(t_stack *stack_a, t_stack *stack_b);
+void	chunks_to_b(t_stack *stack_a, t_stack *stack_b, int chunks);
+int	chunk(int argc);
+void	chunks_sort(int argc, t_stack *stack_a, t_stack *stack_b);
+int	which_move(char x, int index, t_stack *stack);
 
 #endif
 
@@ -81,10 +92,21 @@ int average(t_stack *stack);
 /*2 0 1
 2 1 0
 
-0 2 1
-1 2 0
+void	connect_puzzle(t_stack *stack_a, t_stack *stack_b)
+{
+	int	count;
 
-1 0 2
+	count = stack_a->len;
+	while(count != 0)
+	{
+	if (stack_b->first->index == stack_a->first->index + 1)
+		move("pb", stack_a, stack_b);
+	move("rr", stack_a, stack_b);
+	}
+}
+
+
+
 
 		if (stack_a->first->index < stack_a->last->index
 			&& stack_b->first->index > stack_b->last->index)
@@ -92,17 +114,30 @@ int average(t_stack *stack);
 
 
 
+int	distance(int index, int	compared)
+{
+	int	distance;
+
+	distance = compared - index;
+	if (distance < 0)
+		distance *= -1;
+	return (distance);
+}
 
 
 
 
 
 
+0 2      1
+1 2      0
 
-1 0 2
-2 0 1
+1 0      2
 
-0 2 1
+1 0      2
+2 0      1
 
-2 1 0
-1 2 0*/
+0 2      1
+
+2 1      0
+1 2      0*/

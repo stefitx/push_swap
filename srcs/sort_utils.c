@@ -80,14 +80,59 @@ int average(t_stack *stack)
 		count++;
 	}
 	average = average / count;
-	//printf("AVERAGE INDEX IS %d\n", average);
 	return (average);
 }
 
-int	average_index(int index)
+int	which_move(char x, int given_index, t_stack *stack)
 {
-	int average;
+	t_piece *ptr;
+	int	count;
 
-	average = index / 2;
-	return (average);
+	count = 0;
+	ptr = stack->first;
+	if (x == 'a')
+	{
+		while (ptr->index != given_index)
+		{
+			count++;
+			ptr = ptr->next;
+		}
+	}
+	if (x == 'b')
+	{
+		while (ptr && ptr->index > given_index)
+		{
+			count++;
+			ptr = ptr->next;
+		}
+		if (!ptr || (ptr->index > given_index && count == stack->len))
+			return -1;
+	}
+	return (count);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

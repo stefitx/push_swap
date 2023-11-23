@@ -11,7 +11,8 @@
 # **************************************************************************** #
 
 SRCS = srcs/main.c srcs/big_sort.c srcs/check_args.c srcs/inits.c \
-srcs/libft_utils.c srcs/movements.c srcs/small_sort.c srcs/sort_utils.c
+srcs/libft_utils.c srcs/movements.c srcs/small_sort.c srcs/sort_utils.c \
+srcs/chunks_sort.c
 SRCSBONUS = #
  			
 OBJS = ${SRCS:.c=.o}

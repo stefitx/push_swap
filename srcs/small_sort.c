@@ -50,11 +50,11 @@ void	small_sort(t_stack *stack_a, t_stack *stack_b)
 
 int	sort(int argc, t_stack *stack_a, t_stack *stack_b)
 {
-if (argc == 3)
+	if (argc == 3)
 		move("sa", stack_a, stack_b);
 	else if (argc <= 6)
 		small_sort(stack_a, stack_b);
 	else if (argc > 6 )
-		big_sort(stack_a, stack_b);
+		chunks_sort(argc, stack_a, stack_b);
 	return 0;
 }

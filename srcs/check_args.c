@@ -50,12 +50,12 @@ int	check_character_mistakes(int argc, char **argv)
 	{
 		j = 0;
 		if(argv[i][0] == '\0')
-			error = 0;
+			error = 1;
 		else if (argv[i][0] == '-' || argv[i][0] == '+')
 		{
 			j++;
-			/*if(argv[i][1] == '0')
-				error = 1;*/
+			if(argv[i][1] == '\0')
+				error = 1;
 		}
 		if (!error)
 		{
@@ -120,6 +120,6 @@ int	ft_check_input(int argc, char **argv)
 	}
 //	printf("after range %d\n", error);
 	if (error == 1)
-		printf("%s", "Error\n");
+		write(2, "Error\n", 7);
 	return (error);
 }
