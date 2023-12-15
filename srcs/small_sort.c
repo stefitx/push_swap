@@ -13,7 +13,7 @@
 #include "../includes/ft_push_swap.h"
 
 void	sort_three(t_stack *stack_a, t_stack *stack_b)
-{	
+{
 	if (stack_a->first->index == biggest_index(stack_a))
 		move("ra", stack_a, stack_b);
 	if (stack_a->first->next->index == biggest_index(stack_a))
@@ -34,7 +34,7 @@ void	small_sort(t_stack *stack_a, t_stack *stack_b)
 		if (stack_a->first->next->next->index == smallest_index(stack_a))
 			move("ra", stack_a, stack_b);
 		if ((stack_a->first->next->next->next->index == smallest_index(stack_a)
-			|| stack_a->last->index == smallest_index(stack_a)))
+				|| stack_a->last->index == smallest_index(stack_a)))
 			move("rra", stack_a, stack_b);
 		if (stack_a->first->index == smallest_index(stack_a)
 			&& !sorted(stack_a))
@@ -54,7 +54,7 @@ int	sort(int argc, t_stack *stack_a, t_stack *stack_b)
 		move("sa", stack_a, stack_b);
 	else if (argc <= 6)
 		small_sort(stack_a, stack_b);
-	else if (argc > 6 )
+	else if (argc > 6)
 		chunks_sort(argc, stack_a, stack_b);
-	return 0;
+	return (0);
 }

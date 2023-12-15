@@ -55,6 +55,26 @@ int	add_piece_to_stack(t_stack *stack, t_piece *new_piece)
 	return (0);
 }
 
+void	free_stack_a_in_case_of_error(t_stack *stack_a, int num)
+{
+	int		i;
+	t_piece	*tmp;
+	t_piece	*tmp2;
+
+	i = 0;
+	tmp = stack_a->first;
+	if (tmp != NULL)
+	{
+		while (i <= num)
+		{
+			tmp2 = tmp->next;
+			free(tmp);
+			tmp = tmp2;
+			i++;
+		}
+	}
+}
+
 int	fill_stack_a(t_stack *stack_a, int argc, char **argv)
 {
 	t_piece	*new_piece;
@@ -65,11 +85,14 @@ int	fill_stack_a(t_stack *stack_a, int argc, char **argv)
 	{
 		new_piece = malloc(sizeof(t_piece));
 		if (!new_piece)
+		{
+			free_stack_a_in_case_of_error(stack_a, i - 1);
 			return (0);
+		}
 		new_piece->value = (ft_atoi(argv[i++]));
 		add_piece_to_stack(stack_a, new_piece);
 	}
-	return (0);
+	return (1);
 }
 
 void	initialize_stack(t_stack *stack)

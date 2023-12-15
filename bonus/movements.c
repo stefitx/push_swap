@@ -120,6 +120,4 @@ void	move(char *s, t_stack *stack_a, t_stack *stack_b)
 		simultaneous("reverse", stack_a, stack_b);
 	else if (ft_strncmp(s, "rr", 2) == 0)
 		simultaneous("rotate", stack_a, stack_b);
-	write(1, s, ft_strlen(s));
-	write(1, "\n", 1);
 }
